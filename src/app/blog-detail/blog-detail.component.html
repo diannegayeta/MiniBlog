@@ -1,0 +1,15 @@
+<div class="page-container">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <ul class="navbar-nav mr-auto">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="button" routerLink="/"><i class="fas fa-arrow-left"></i></button>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <button class="btn btn btn-success my-2 my-sm-0" type="button" (click)="onUpdate()">Update</button>
+      </ul>
+  </nav>
+  <div *ngIf="blog" id="content" class="container">
+    <h1>{{ blog.title }}</h1>
+    <p>{{ blog.detail }}</p>
+  </div>
+  <footer id="footer" (click)="onDelete()" style="cursor: pointer">Delete this article</footer>
+</div>

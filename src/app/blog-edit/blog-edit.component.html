@@ -1,0 +1,28 @@
+<form [formGroup]="blogForm" (ngSubmit)="(onSubmit())">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <ul class="navbar-nav mr-auto">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="button" (click)="previous()"><i class="{{ icon }}"></i></button>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <button class="btn btn-success my-2 my-sm-0" type="submit" [disabled]="!blogForm.valid">{{ action }}</button>
+      </ul>
+  </nav>
+  <div class="row">
+    <div class="container">
+      <div class="col-12">
+        <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Title" formControlName="title">
+          <span *ngIf="!blogForm.get('title').valid && blogForm.get('title').touched" class="text-muted">Enter Title</span>
+        </div>
+        <div class="form-group">
+          <label for="detail">Blog Detail</label>
+          <textarea id="detail" type="text" formControlName="detail" class="form-control" rows="10" placeholder="Detail"></textarea> 
+          <span *ngIf="!blogForm.get('detail').valid && blogForm.get('detail').touched" class="text-muted">Enter Blog detail</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+
+

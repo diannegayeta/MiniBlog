@@ -1,0 +1,34 @@
+#delete { 
+    /* color: red; */
+    height: 40px; 
+    position: fixed; 
+    bottom:0%;
+    align-self: auto;
+    text-align: center;
+    /* width:100%;  */
+    /* background-color: #393838;  */
+    opacity: 1;
+}
+
+p {
+    white-space: pre-wrap;
+    text-align: justify;
+}
+
+.page-container {
+    position: relative;
+    min-height: 100vh;
+  }
+
+#content {
+    padding-bottom: 2.5rem; 
+  }
+
+#footer {
+    color: red;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: 2.5rem; 
+  }
