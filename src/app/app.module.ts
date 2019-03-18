@@ -11,6 +11,10 @@ import { AppService } from './app.service';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { ErrorComponent } from './error/error.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SigninComponent } from './auth/signin/signin.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { AuthService } from './auth/auth.service';
+import { AuthGuard } from './auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
     BlogEditComponent,
     BlogItemComponent,
     BlogDetailComponent,
-    ErrorComponent
+    ErrorComponent,
+    SigninComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,7 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [AppService],
+  providers: [AppService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

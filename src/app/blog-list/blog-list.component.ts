@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Blog } from '../app.model';
 import { AppService } from '../app.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-blog-list',
@@ -13,7 +14,7 @@ export class BlogListComponent implements OnInit, OnDestroy {
   blogs: Blog[];
   subscription: Subscription;
 
-  constructor(private appService: AppService) { }
+  constructor(private appService: AppService, private authService: AuthService) { }
 
   ngOnInit() {
     this.subscription = this.appService.getBlogs().subscribe(
@@ -22,6 +23,14 @@ export class BlogListComponent implements OnInit, OnDestroy {
       }
     )
   }   
+
+  isAuthenticated() {
+    return this.authService.isAuthenticated();
+  }
+
+  onLogout() {
+    this.authService.logout();
+  }
 
   ngOnDestroy() {
     this.subscription.unsubscribe;

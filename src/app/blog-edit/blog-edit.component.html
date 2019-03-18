@@ -1,10 +1,10 @@
 <form [formGroup]="blogForm" (ngSubmit)="(onSubmit())">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4 fixed-top">
       <ul class="navbar-nav mr-auto">
-        <button class="btn btn-outline-info my-2 my-sm-0" type="button" (click)="previous()"><i class="fas fa-times"></i></button>
+        <button class="btn btn-outline-info my-0" type="button" (click)="previous()"><i class="fas fa-times"></i></button>
       </ul>
       <ul class="navbar-nav ml-auto">
-        <button class="btn btn-success my-2 my-sm-0" type="submit" [disabled]="!blogForm.valid">{{ action }}</button>
+        <button class="btn btn-success my-0" type="submit" [disabled]="!blogForm.valid">{{ action }}</button>
       </ul>
   </nav>
   <div class="row">
