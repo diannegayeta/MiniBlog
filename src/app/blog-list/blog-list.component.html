@@ -14,7 +14,7 @@
         </li>
       </ng-template>
         <li *ngIf="isAuthenticated()" class="nav-item">
-            <a class="nav-link" (click)="onLogout()" style="cursor: pointer" >Logout</a>
+            <a class="nav-link" (click)="onLogout()" data-toggle="collapse" data-target=".navbar-collapse.show" style="cursor: pointer" >Logout</a>
         </li>
     </ul>
   </div>
