@@ -16,7 +16,7 @@ export class BlogEditComponent implements OnInit, OnDestroy {
   id: number;
   blog: Blog;
   icon: string;
-  action: string;
+  action: string = 'fas fa-times';
   editMode: boolean;
   subscription: Subscription;
 
@@ -40,11 +40,9 @@ export class BlogEditComponent implements OnInit, OnDestroy {
   setMode() {
     if (this.editMode) {
       this.action = 'Save';
-      this.icon = 'fas fa-arrow-left';
       this.getBlog();
     } else {
       this.action = 'Post';
-      this.icon = 'fas fa-times';
     }
   }
 
