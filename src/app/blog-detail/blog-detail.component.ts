@@ -3,6 +3,7 @@ import { AppService } from '../app.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Blog } from '../app.model';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-blog-detail',
@@ -14,7 +15,7 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
   blog: Blog;
   subscription: Subscription;
 
-  constructor(private appService: AppService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private appService: AppService, private authService: AuthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(
@@ -38,7 +39,9 @@ export class BlogDetailComponent implements OnInit, OnDestroy {
   }
 
   onDelete() {
-    if(confirm('Do you want to delete this article?')) {
+    if (!this.authService.isAuthenticated()) {
+      this.router.navigate(['/signin']);
+    } else if (confirm('Do you want to delete this article?')) {
       this.appService.deleteBlog(this.id).subscribe(
         (blog: Blog) => {
           this.router.navigate(['/']);

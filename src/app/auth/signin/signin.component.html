@@ -30,6 +30,7 @@
               </div>
               <div *ngIf="errorMessage" id="errorMessage" class="mb-3">{{errorMessage}}</div>
               <button class="btn btn-primary" type="submit" [disabled]="!signinForm.valid">Sign In</button>
+              <div class="pt-3" style="cursor: pointer"><a routerLink="/signup">Create Account</a></div>
             </form>
         </div>
     </div>  
